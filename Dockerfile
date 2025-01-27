@@ -34,6 +34,12 @@ RUN pip install --no-cache-dir \
     pandas \
     scikit-learn
 
+# Download the model during the build process
+# RUN python -c "from transformers import BertTokenizer, BertForMaskedLM; \
+#     model_name = 'bert-base-multilingual-cased'; \
+#     BertTokenizer.from_pretrained(model_name); \
+#     BertForMaskedLM.from_pretrained(model_name)"
+
 # Copy the source code and work directory into the container
 COPY src/ /job/src/
 COPY work/ /job/work/
